@@ -17,5 +17,5 @@ Replace ABC with your own account's letters.
 ![image](https://user-images.githubusercontent.com/122484250/211909019-143e22c9-95e7-49db-a7c9-868ff4f94b03.png)
 7. Try some git commands and have fun!!
 
-I had some experience working with the terminal since I have been doing some wed development work. This is why things may feel fast-paced however manipulating directory paths and using git commands is way simpler than you think it is. My advice is to just go for whatever idea you have in mind; surf the internet, look up commands,
+I had some experience working with the terminal when doing this because I have been doing some wed development work. This is why things may feel fast-paced however manipulating directory paths and using git commands is way simpler than you think it is. My advice is to just go for whatever idea you have in mind; surf the internet, look up commands,
 and do whatever you can find. The worst that could happen is an error, there is no harm in trying at all. After all, we learn through failure!
