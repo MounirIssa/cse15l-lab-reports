@@ -5,7 +5,7 @@ in your UCSD username and PID to search for your lab account. Under the heading,
 characters, cs15lwi23ABC. The last part wi23 may change depending on your quarter, click that button and proceed. There should also be a variation in the last three letters, ABC.    
 ![image](https://user-images.githubusercontent.com/122484250/211909679-83208c7b-8907-4e7f-ae22-3bf85738c8ed.png)
 2. If this is your first time logging in, you should see a request that asks you to reset your password. Go ahead and reset your password, remember it, and wait for
-10 to 15 minutes. The page should have the head title, global reset password.  
+10 to 15 minutes. The page should have the head title, global password reset.  
 ![image](https://user-images.githubusercontent.com/122484250/211909856-d95b3394-f469-4174-9871-fbae072a3472.png) 
 3. Open VSCode, if you do not have it installed, go to https://code.visualstudio.com/ and download it. Setting things up should be pretty simple, not much to do. I
 already had VSCode and I am assuming you do since CSE 11 and 8B, classes that use Java, are a prerequisite for this course.
