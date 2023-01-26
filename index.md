@@ -20,7 +20,7 @@ After typing my password, the process was successful:
 ![image](https://user-images.githubusercontent.com/122484250/214970841-d180ddc9-f6db-48e1-b6fb-3af3608e9caf.png)
 2. Checking current directory:`pwd` <br>
 ![image](https://user-images.githubusercontent.com/122484250/214968450-dac427b1-c006-4204-a987-141411225f09.png) <br>
-This shows which directory you are currently in. To get out of a directory, use the command `cd ..` and to go into a path, use the command `cd fileName`.
+This shows which directory you are currently in. To get out of a directory, use the command `cd ..` and to go into a directory, use the command `cd fileName`.
 3. Checking the files in your directory: `ls` <br>
 ![image](https://user-images.githubusercontent.com/122484250/214968723-3e4b46e4-ca42-4203-bb13-acd8aedde73e.png) <br>
 And by using the command `cd newFile`, where cd refers to change directory, try guessing what my current directory becomes before you look at the image below. <br>
