@@ -21,24 +21,24 @@ The argument to the handleRequest method is the URL of the page and the argument
 The values of the handleRequest method change based on the user's valid query input. Every time the user puts in the correct path `/add-message` and the query `?s=[USER INPUT]`, the value of `String store` changes as it saves the user's input in the string object, store.
 
 # Part 2:
-For this part of the assignment, I have chosen the reverseInPlace method.
-Here is a failure-inducing input:
-`public void testInPlace() {
-		int[] input3 = {1, 2, 3};
-		ArrayExamples.reverseInPlace(input3);
+For this part of the assignment, I have chosen the reverseInPlace method. <br>
+Here is a failure-inducing input: <br>
+`public void testInPlace() { 
+		int[] input3 = {1, 2, 3}; 
+		ArrayExamples.reverseInPlace(input3); 
 		assertArrayEquals(new int[] {3, 2, 1}, input3);
-	}
+	} 
 ` <br>
 Here is the error message that pops out:
 ![image](https://user-images.githubusercontent.com/122484250/215299462-8f969a34-f4d7-419d-a9ad-392b2c4d13ee.png) <br>
 
 In other words, at the second index position, we expected the value to be 1 but our program saw 3 instead. Hence, the array was not succesfully reversed. <br>
 
-Here is a non-failure-inducing input:
-`public void testReverseInPlace() {
-		int[] input1 = { 3 };
-		ArrayExamples.reverseInPlace(input1);
-		assertArrayEquals(new int[]{ 3 }, input1);
+Here is a non-failure-inducing input: <br>
+`public void testReverseInPlace() { 
+		int[] input1 = { 3 }; 
+		ArrayExamples.reverseInPlace(input1); 
+		assertArrayEquals(new int[]{ 3 }, input1); 
 	}` <br>
 Here is the output after running the JUnit Test:
 ![image](https://user-images.githubusercontent.com/122484250/215299617-78ccf28c-1179-46db-abed-eeb2e1e37240.png) <br>
