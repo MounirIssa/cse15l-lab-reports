@@ -1,33 +1,52 @@
-# How to log into a course-specific account?
-I will summarize it into 6 steps below:
-1. Access to the account. Before doing anything, you need to have an account for remote access. Go to [this website](https://sdacs.ucsd.edu/~icc/index.php). Once on the page, type in your UCSD username and PID to search for your lab account. Under the heading, additional accounts, you should be able to see a button that starts with the following
-characters, cs15lwi23XX0. The last part wi23 may change depending on your quarter, click that button and proceed. There should also be a variation in the last three letters, XX0.    
-![image](https://user-images.githubusercontent.com/122484250/211909679-83208c7b-8907-4e7f-ae22-3bf85738c8ed.png)
-2. If this is your first time logging in, you should see a request that asks you to reset your password. Go ahead and reset your password. Write down your passowrd, and wait for 10 to 15 minutes. The page should have the head title, global password reset.  
-![image](https://user-images.githubusercontent.com/122484250/211909856-d95b3394-f469-4174-9871-fbae072a3472.png) 
-3. Open VSCode, if you do not have it installed, go to [this website](https://code.visualstudio.com/) and download it. Setting things up should be pretty simple, not much to do. I already had VSCode and I am assuming you do too since CSE 11 and/or 8B, classes that use Java, are prerequisites for this course.
-5. Next, go to VSCode, open a new terminal on VSCode and type the following: <br>
-`$ ssh cs15lwi23XX0@ieng6.ucsd.edu` <br>
-Replace XX0 with your own account's letters.
-5. You will receive a confirmation request asking you whether you really want to continue, type yes and continue.
-6. Upon success, you will see this on your screen:  
-![image](https://user-images.githubusercontent.com/122484250/211909019-143e22c9-95e7-49db-a7c9-868ff4f94b03.png)
+# Lab Report Two:
 
-## Trying some git commands:
-1. Logging into the remote server, yours may look a little different if it is your first time doing this:
-`ssh cs15lwi23XX0@ieng6.ucsd.edu`
-After typing my password, the process was successful:
-![image](https://user-images.githubusercontent.com/122484250/214970841-d180ddc9-f6db-48e1-b6fb-3af3608e9caf.png)
-2. Checking current directory:`pwd` <br>
-![image](https://user-images.githubusercontent.com/122484250/214968450-dac427b1-c006-4204-a987-141411225f09.png) <br>
-This shows which directory you are currently in. To get out of a directory, use the command `cd ..` and to go into a directory, use the command `cd fileName`.
-3. Checking the files in your directory: `ls` <br>
-![image](https://user-images.githubusercontent.com/122484250/214968723-3e4b46e4-ca42-4203-bb13-acd8aedde73e.png) <br>
-And by using the command `cd newFile`, where cd refers to change directory, try guessing what my current directory becomes before you look at the image below. <br>
-Bingo! <br>
-![image](https://user-images.githubusercontent.com/122484250/214968860-451b0d46-0cca-475c-9a24-ae278e9c3965.png) <br>
+## Part 1:
+### Code Screenshot(s):
+![image](https://user-images.githubusercontent.com/122484250/215291495-9bee598b-05a7-41a2-b600-527d8e324a7f.png) <br>
+<br>
+![image](https://user-images.githubusercontent.com/122484250/215292080-ebb0dbe1-e652-47bc-bf2b-15c04764f4f7.png) <br>
 
-There are many more commands for you to try such as `mkdir fileName` to create a new empty directory, or `scp fileName` to copy and/or update files from your local computer to the remote server.
+### Output Screenshot(s):
+![image](https://user-images.githubusercontent.com/122484250/215298866-3862e4ad-89aa-4714-a307-d74a4011dbaf.png) <br>
+<br>
+![image](https://user-images.githubusercontent.com/122484250/215298885-5c031769-6622-4079-aa61-560c3324a190.png) <br>
+<br>
+### Which methods in your code are called?
+The class StringServer, implemented the interface URLHandler. Inside the class, I overrode the method handleRequest, whereby I implemented the desired functionality of my server. Upon calling the class StringServer() in the main method, - the method responsible for taking in the port number and initiating the web server on my local server - the handleRequest method was called to give my url it's desired functionality.
+In conclusion, the two methods called are the handleRequest method that takes in a URL, and the main method, that takes in the port number.
+<br>
+### What are the relevant arguments to those methods, and the values of any relevant fields of the class?
+The argument to the handleRequest method is the URL and the argument for the main method is the port number.
+<br>
+### How do the values of any relevant fields of the class change from this specifc request? If no values got changed, explain why?
+The values of the handleRequest method change based on the user's valid query input. Every time the user puts in the path `/add-message` and the query `?s=[USER INPUT]`, the value of `String store` changes as it saves the user input in a string object.
+
+# Part 2:
+For this part of the assignment, I have chosen the reverseInPlace method.
+Here is a failure-inducing input:
+`public void testInPlace() {
+		int[] input3 = {1, 2, 3};
+		ArrayExamples.reverseInPlace(input3);
+		assertArrayEquals(new int[] {3, 2, 1}, input3);
+	}
+` <br>
+Here is the error message that pops out:
+![image](https://user-images.githubusercontent.com/122484250/215299462-8f969a34-f4d7-419d-a9ad-392b2c4d13ee.png) <br>
+
+In other words, at the second index position, we expected the value to be 1 but our program saw 3 instead. Hence, the array was not succesfully reversed. <br>
+
+Here is a non-failure-inducing input:
+`public void testReverseInPlace() {
+		int[] input1 = { 3 };
+		ArrayExamples.reverseInPlace(input1);
+		assertArrayEquals(new int[]{ 3 }, input1);
+	}` <br>
+Here is the output after running the JUnit Test:
+![image](https://user-images.githubusercontent.com/122484250/215299617-78ccf28c-1179-46db-abed-eeb2e1e37240.png) <br>
+The green checkmerk on the left indicates a successful test. <br>
+
+Now, to discuss why this code is not working. The symptom lies in two places: <br>
 
 
-I had some experience working with the terminal when doing this because I have been doing some web development work. This is why things may feel fast-paced however manipulating directory paths and using git commands is way simpler than you think. My advice is to just go for whatever idea you have in mind; surf the internet, look up commands, and do whatever interests you. The worst that could happen is an error, there is no harm in trying at all. After all, we learn through failure!
+
+
