@@ -23,40 +23,42 @@ The values of the handleRequest method change based on the user's valid query in
 # Part 2:
 For this part of the assignment, I have chosen the reverseInPlace method. <br>
 Here is a failure-inducing input: <br>
-`public void testInPlace() { 
-		int[] input3 = {1, 2, 3}; 
-		ArrayExamples.reverseInPlace(input3); 
-		assertArrayEquals(new int[] {3, 2, 1}, input3);
-	} 
-` <br>
-Here is the error message that pops out:
-![image](https://user-images.githubusercontent.com/122484250/215299462-8f969a34-f4d7-419d-a9ad-392b2c4d13ee.png) <br>
-
-In other words, at the second index position, we expected the value to be 1 but our program saw 3 instead. Hence, the array was not succesfully reversed. <br>
-
+```java
+public void testInPlace() { 
+	int[] input3 = {1, 2, 3}; 
+	ArrayExamples.reverseInPlace(input3); 
+	assertArrayEquals(new int[] {3, 2, 1}, input3);
+} 
+```
 Here is a non-failure-inducing input: <br>
-`public void testReverseInPlace() { 
-		int[] input1 = { 3 }; 
-		ArrayExamples.reverseInPlace(input1); 
-		assertArrayEquals(new int[]{ 3 }, input1); 
-	}` <br>
-Here is the output after running the JUnit Test:
-![image](https://user-images.githubusercontent.com/122484250/215299617-78ccf28c-1179-46db-abed-eeb2e1e37240.png) <br>
-The green checkmerk on the left indicates a successful test. <br>
+```java
+public void testReverseInPlace() { 
+	int[] input1 = { 3 }; 
+	ArrayExamples.reverseInPlace(input1); 
+	assertArrayEquals(new int[]{ 3 }, input1); 
+}
+```
+Here is the output after running the JUnit Test: <br>
+![image](https://user-images.githubusercontent.com/122484250/215316784-bb1607b9-8377-453c-bdbd-720bc918cd88.png) <br>
 
-Now, to discuss why this code is not working. The symptom lies in two places: <br>
-1. During the iteration, we are overwriting the values of the array from the 0th index position to the last before storing the instantaneous values somewhere. Consider the following example: <br>
+Now, to discuss why this code is not working. The bug lies in two places: <br>
+1. During the iteration, we are overwriting the values of the array from the 0th index position to the last before storing the instantaneous values somewhere. Consider the following scenario: <br>
 Let the input array be `int[] arr = {1, 2, 3}` and let the expected output be `{3, 2, 1}`. <br>
-The code in given file does the following: <br>
-`{3, 2, 3} // arr[0] = arr[2]` <br>
-`{3, 2, 3} // arr[1] = arr[1]` <br>
-`{3, 2, 3} // arr[2] = arr[0]` <br>
-Error! `arr[2] = arr[0]` is correct however we overwrote the value of `arr[0]` before storing it somewhere. To solve this dilemma, here is what we will do. <br>
-1. Iterate through half the array and simultaneously replace the values of the first, with its last complement.
+The code in the given file does the following: <br>
+```java
+{**3**, 2, 3} // arr[0] = arr[2]
+{3, **2**, 3} // arr[1] = arr[1]
+{3, 2, **3**} // arr[2] = arr[0]
+```
+#### Error! <br> 
+`arr[2] = arr[0]` is correct however we overwrote the value of `arr[0]` before storing it somewhere. To solve this dilemma, here is what we will do. <br>
+1. Iterate through half the array and simultaneously replace the values of the first, with its last complement, and vice versa.
 2. Store the values in the first half of the array before overwriting them with the last, overwrite the values of the second half with the values you stored.
 <br>
 Here is a demonstration: <br>
-`static void reverseInPlace(int[] arr) { 
+
+```java
+static void reverseInPlace(int[] arr) { 
 	if (arr == null || arr.length <= 1) {
 		return;
 	}
@@ -65,11 +67,11 @@ Here is a demonstration: <br>
 		arr[i] = arr[arr.length - i - 1]; // arr[0] = arr[2]
 		arr[arr.length - i - 1] = store; // arr[2] = temp (arr[0] before modification)
 	}
-}` <br>
+}
+```
 
 Now, when we run our JUnit test, we should be good: <br>
-![image](https://user-images.githubusercontent.com/122484250/215301819-ff840b4a-950a-4806-92a9-6be72e5f4b6a.png) <br>
-![image](https://user-images.githubusercontent.com/122484250/215301905-b356b614-eeae-4727-ad41-c42990e47d9a.png) <br>
+![image](https://user-images.githubusercontent.com/122484250/215317294-84da1699-4ed4-4178-abd9-d95669f2444e.png) <br>
 
 Success!
 
