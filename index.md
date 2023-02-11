@@ -4,7 +4,7 @@
 
 Here are some of the new commands I found:
 
-1. `find . -type "TYPE" -empty`
+* `find . -type "TYPE" -empty`
 
 Here is a screenshot that demonstrates the usage of this command:
 
@@ -14,7 +14,7 @@ Here is a screenshot that demonstrates the usage of this command:
 The keyword `-type f` tells it that the files to be searched are files. And `-empty` tells it to search for the empty directories inside written_2. The result is empty
 because there are no empty files inside written_2.
 
-2. `find . -empty`
+* `find . -empty`
 
 Here is a screenshot that displays the output:
 
@@ -22,7 +22,7 @@ Here is a screenshot that displays the output:
 
 The reason this list is longer is because the find command searches for all empty files, directories, etc... inside the skill-demo1-data. It does not differentiate between txt files and directories/paths.
 
-3. `find . -maxdepth "DEPTH"`
+* `find . -maxdepth "DEPTH"`
 
 Here is a screenshot of an output:
 
@@ -30,7 +30,7 @@ Here is a screenshot of an output:
 
 In this scenario, `./written_2` is considered as the main directory, and `-maxdepth 2` means that the depth of the tree we want to search inside this folder, is 2. This means the find command will only search the files that are directly residing inside the main directory, and the files residing within them. It is not a recursive function like `find .` that prints out every folder/file within the subdirectories.
 
-4. `find . -mindepth "DEPTH"`
+* `find . -mindepth "DEPTH"`
 
 Here is a screenshot displaying this command in use:
 
@@ -40,7 +40,7 @@ As you can guess, if `-maxdepth` is used to control how deep into our folders we
 
 ### Grep Command:
 
-1. `grep -i "STRING" file.txt`
+* `grep -i "STRING" file.txt`
 
 Here is an image showing how this is used:
 
@@ -48,7 +48,7 @@ Here is an image showing how this is used:
 
 The keyword `-i` ignores case and only searches for strings inside the given file that matches what the user put. Now, this is not very useful on it's own but you will see how it will come to use in the following command.
 
-2. `grep -c "STRING" file.txt`
+* `grep -c "STRING" file.txt`
 
 Here is an image:
 
@@ -56,7 +56,7 @@ Here is an image:
 
 This command prints a count of the lines that mactch the given pattern; unlike the previous one however, this command is case sensitive thus accuracy is extremely important.
 
-3. `grep -l "STRING" *`
+* `grep -l "STRING" *`
 
 Here is how this command can be used:
 
@@ -64,7 +64,7 @@ Here is how this command can be used:
 
 The purpose of the `-l` part of this command is to display a list of file names with the string to be searched. In other words, disregarding case sensitivity, all these files have the strinng "History" in them.
 
-4. `grep -n "STRING" file.txt`
+* `grep -n "STRING" file.txt`
 
 Here is an output:
 
