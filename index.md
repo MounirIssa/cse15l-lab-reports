@@ -22,7 +22,7 @@ using <Ctrl+C> and pasted the link using Ctrl+V.
 
 *Keys Pressed:* `<Ctrl+C> <Ctrl+V>`
 
-I do not have the compile and run commands saved so I had to copy and paste it from the course webpage, ![here](https://ucsd-cse15l-w23.github.io/week/week3/).
+I do not have the compile and run commands saved so I had to copy and paste it from the course webpage, [here](https://ucsd-cse15l-w23.github.io/week/week3/).
 
 ![image](https://user-images.githubusercontent.com/122484250/221737007-d15e3065-40ce-4e90-878e-61d1169cb4a6.png)
 
