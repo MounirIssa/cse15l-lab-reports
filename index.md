@@ -7,18 +7,18 @@ Here are some of the new commands I found:
 * `find . -type "TYPE" -empty`
 
 This command works like the normal find, however there's a slight twist. First, the keyword `-type` tells the find command that we are searching for something even
-more specific, a directory (d), file (f), symbolic link (l), etc.... This helps limit the broadness of our search, especially in an environment with huge chunks of data spread all over the place. The keyword `-empty` provides further specificity and tells the command to look for empty directories, files, etc... This can be very useful in cases where we want to clean up our file.
+more specific, a directory (d), file (f), symbolic link (l), etc.... This helps limit the broadness of our search, especially in an environment with huge chunks of data spread all over the place. The keyword `-empty` provides further specificity and tells the command to look for empty directories, files, etc... This can be very useful in cases where we want to clean up our server.
 
 Here is a screenshot that demonstrates the usage of this command:
 
 
 ![image](https://user-images.githubusercontent.com/122484250/218277116-f5dfd2f0-97b3-4227-8272-6edf81aace41.png)
 
-The reason this is empty is because there are no files within the directory `written_2` or its subdirectories that are empty.
+The reason this is empty is because there are no files within the directory `written_2` (or its subdirectories) that are empty.
 
 ![image](https://user-images.githubusercontent.com/122484250/221761646-93ac6b06-6831-42cc-beab-4e45986c2a6a.png)
 
-This is another example that show cases the usage of the above command; this time, we are searching for empty directories. 
+This is another example that showcases the usage of the above command; this time, we are searching for empty directories. 
 
 
 
