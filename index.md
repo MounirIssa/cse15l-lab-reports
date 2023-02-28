@@ -67,7 +67,7 @@ Here is another example using `-mindepth`:
 ![image](https://user-images.githubusercontent.com/122484250/221764093-53cb403c-82f2-4158-9c59-dfd517fb9fc2.png)
 
 
-And this concludes my report for the third lab. Hope you found it useful!
+And this concludes my lab report 3, hope you found it useful!!
 
 Sources:
 1. [OpenSource](https://opensource.com/article/21/9/linux-find-command)
