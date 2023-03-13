@@ -1,76 +1,60 @@
-# Lab Report 3
+# Lab Report 5
 
-### Find Command:
+### Grep Command:
 
-Here are some of the new commands I found:
+For the 5th and last lab report for this class, I decided to do the same exploration we did in lab report 3 for a different command. The command I've chosen is the 
+grep command. Here are some of the interesting stuff I found:
 
-* `find . -type "TYPE" -empty`
+1. `grep -i "STRING" file.txt`
 
-This command works like the normal find, however there's a slight twist. First, the keyword `-type` tells the find command that we are searching for something even
-more specific, a directory (d), file (f), symbolic link (l), etc.... This helps limit the broadness of our search, especially in an environment with huge chunks of data spread all over the place. The keyword `-empty` provides further specificity and tells the command to look for empty directories, files, etc... This can be very useful in cases where we want to clean up our server.
+The Grep command is, by default, case sensitive. However, slightly twisting the command by adding `-i` gets rid of the case sensitivity of the grep command. This can be very useful in case where we want to compute the total number of some item mentioned in a txt file. For data analysts who work with huge data through the terminal, this can be a life saving tool.
 
-Here is a screenshot that demonstrates the usage of this command:
+Here is a screenshot demonstrating how this command is used on ch1.txt within the Abernathy directory on skill-demo1-data:
 
+![image](https://user-images.githubusercontent.com/122484250/224604251-849a08cc-77dd-4e28-adb3-bdeeb9cd625b.png)
 
-![image](https://user-images.githubusercontent.com/122484250/218277116-f5dfd2f0-97b3-4227-8272-6edf81aace41.png)
+Despite the woord "century" being written all in caps, the grep command still found what needed to be searched and returned the desired output (where the matching keywords are highlighted. This can work with any other file containing the to-be-searched keyword:
 
-The reason this is empty is because there are no files within the directory `written_2` (or its subdirectories) that are empty.
+![image](https://user-images.githubusercontent.com/122484250/224604504-b13cab27-4b55-414a-a874-28c3e59062b4.png)
 
-![image](https://user-images.githubusercontent.com/122484250/221761646-93ac6b06-6831-42cc-beab-4e45986c2a6a.png)
+2. `grep -c "STRING"  file.txt`
 
-This is another example that showcases the usage of the above command; this time, we are searching for empty directories. 
+Unlike the previous command, this one is case sensitive. It's purpose is to print the number of lines matching the given pattern (i.e. the line contains the specific word to be searched. Now, here is where magic can be done. We will combine the above command with the first, and this is what will happen:
 
+![image](https://user-images.githubusercontent.com/122484250/224605773-446bed97-f274-43d6-b792-4d4e556902dc.png)
 
+If you think that this is cool, wait until you see the next step. We will take this a step further and recursively print out all the number of matching lines within the txt files of a given directory:
 
-* `find <directory> -ls`
+![image](https://user-images.githubusercontent.com/122484250/224605899-336cfcb4-d1f0-4452-9c7b-339d03736c8a.png)
 
-This command lists the contents of a directory recursively, meaning that it doesn't just list the target you provide for it, but also descends into every subdirectory within that target (and every subdirectory in each subdirectory, and so on.), printing all paths. This can be useful in cases where we want to print out all the
-content of a directory, and observe what changes could be made to better organize the data.
+3. `grep -l "STRING" *`
 
-![image](https://user-images.githubusercontent.com/122484250/221762780-eff68df1-e554-49aa-b19d-4aa46b227565.png)
+The purpose of the `-l` part in the grep command is to print out the file names that contain the string to be searched. It can be useful when we do not want the number of lines or the lines themselves, but the file names containing those strings. This is especially true when navigating books. Here is out this command can be used:
 
-The list for this specific example goes on and on. 
+![image](https://user-images.githubusercontent.com/122484250/224606447-48721298-85b3-408a-a59b-33f4b9dddc57.png)
 
-Here is another example that is rather more specific and concise:
+`-i` instructs bash to ignore case sensitivity, and `-l` prints out not the line but the files that contain the string to be searched. Let us look at another example of how this can be used (under normal circumstances):
 
-![image](https://user-images.githubusercontent.com/122484250/221763080-8fa7193a-cf68-46fc-82fd-4ccdf0a5bef5.png)
+![image](https://user-images.githubusercontent.com/122484250/224606548-be091130-e601-43e7-a6a2-3580079ccd49.png)
 
-This prints all the content inside the directory Berk recursively.
+4. `grep -n "STRING" file.txt`
 
+Similar to the `-c` command, this prints out the number of lines where the to-be-searched string is found. However, this prints out the lines in a slightly different format. Further, it does not bluntly give out the number without any additional information. Here is how it is used in one scenario:
 
-* `find . -maxdepth "DEPTH"`
+![image](https://user-images.githubusercontent.com/122484250/224607633-662e0c09-39cb-457a-a0ee-609a5deb47a6.png)
 
-With hundreds of files in a default user directory and thousands more outside of that, sometimes you get more results from find than you want. This command helps
-you limit the depth of your searches with the keyword `-maxdepth`.
+So lines 14, 35, 44, and 93 contain the string "It is". We can also take this a step further and ignore case sensitivity using the `-i` command we mentioned earlier. Here is how it can be done:
 
-Here is an instance where this command is used:
+![image](https://user-images.githubusercontent.com/122484250/224607846-519e2ca5-a046-474c-b881-25bdd67362f3.png)
 
-![image](https://user-images.githubusercontent.com/122484250/218277364-2e3eb4c4-6286-4649-8dcc-a84927eb66e9.png)
+Suddenly it is much larger, and the number of matching lines is over 13 lines.
 
-In this scenario, `./written_2` is considered as the main directory, and `-maxdepth 2` means that the depth of the tree we want to search inside this folder, is 2. This means the find command will only search the files that are directly residing inside the main directory, and the files residing within them. It is not a recursive function like `find .` that prints out every folder/file within the subdirectories. Rather, it knows where to stop based on the input arguments.
+And this concludes my lab report 5. I had alot of fun doing this as I got to experiment combining different commands, many of which I did not add here due to me not seeing a scenario where those combinations would be used. Nonetheless, it was not boring!
 
-This is another example showcasing the command's usage:
-
-![image](https://user-images.githubusercontent.com/122484250/221763740-78faf734-c2b2-41f3-bed2-0bce35c23a7d.png)
-
-
-* `find . -mindepth "DEPTH"`
-
-As you can guess, if `-maxdepth` is used to control how deep into our folders we want `find` to descend to, `-mindepth` is the exact opposite, it is used to set the minimum depth of recursion. In simple words, `-maxdepth` is the maximum depth of recursion whereas `-mindepth` is the minimum. This can also be very helpful when working with really large files. Therefore, the usage of both these keywords really depends on our needs and the environment we're working in.
-
-Here is a screenshot displaying this command in use:
-
-![image](https://user-images.githubusercontent.com/122484250/218278261-767a2c17-0520-4f3a-8db8-dfeff3f12476.png)
-
-Here is another example using `-mindepth`:
-
-![image](https://user-images.githubusercontent.com/122484250/221764093-53cb403c-82f2-4158-9c59-dfd517fb9fc2.png)
-
-
-And this concludes my lab report 3, hope you found it useful!!
 
 Sources:
 1. [OpenSource](https://opensource.com/article/21/9/linux-find-command)
 2. [RedHat](https://www.redhat.com/sysadmin/linux-find-command)
+3. [GeeksForGeeks](https://www.geeksforgeeks.org/grep-command-in-unixlinux/)
 
 
